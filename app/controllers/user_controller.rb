@@ -18,7 +18,6 @@ class UserController < ApplicationController
   def getAllEmployees
       employees = User.where(role: 'employee')
       render json: employees
-
   end
 
   def getAllAdmins
