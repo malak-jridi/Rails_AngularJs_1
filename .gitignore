@@ -21,6 +21,8 @@
 /storage/*
 !/storage/.keep
 
+/vendor/assets/bower_components
+
 /node_modules
 /yarn-error.log
 
