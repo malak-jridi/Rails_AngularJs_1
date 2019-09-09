@@ -1,0 +1,28 @@
+
+<div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+  
+      <ul class="nav navbar-nav nav-header navbar-default">
+  
+        <li ng-show="signedIn()"><a ui-sref="employees">Employees</a></li> 
+        <li ng-show="signedIn()"><a ui-sref="Demands">Demandes</a></li> 
+        <li ng-show="signedIn()"><a ui-sref="profil">Profil</a></li> 
+        <li ng-show="signedIn()"><a ng-click="logout()">Logout</a></li> 
+  
+        <!-- SignIn as an employee ??
+       <li
+        ng-show="signedIn()"><a ng-click="">Profile</a></li> 
+  
+        -->
+  
+    </ul>
+  </nav>
+  </div>
+      <div ng-controller="HomeCtrlAdmin">
+        <p>{{hello}} {{user.name}}</p>
+      </div>
+  
+  
+  
+  
+        

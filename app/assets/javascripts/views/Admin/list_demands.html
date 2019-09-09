@@ -1,0 +1,83 @@
+
+
+<div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+  
+      <ul class="nav navbar-nav nav-header navbar-default">
+  
+        <li ng-show="signedIn()"><a ui-sref="employees">Employees</a></li> 
+        <li ng-show="signedIn()"><a ui-sref="Demands">Demandes</a></li> 
+        <li ng-show="signedIn()"><a ui-sref="profil">Profil</a></li> 
+        <li ng-show="signedIn()"><a ng-click="logout()">Logout</a></li> 
+  
+        <!-- SignIn as an employee ??
+       <li
+        ng-show="signedIn()"><a ng-click="">Profile</a></li> 
+  
+        -->
+  
+    </ul>
+  </nav>
+  </div>
+
+
+
+
+
+
+
+  <div class="col-lg-8 col-lg-offset-2">
+
+  
+      <table class="table" ng-table="listdemands" ng-controller="HomeCtrlAdmin">
+          <thead>
+              <tr >
+                  <th scope="col">Employé</th>
+                  <th scope="col">Debut congès</th>
+                  <th scope="col">Fin Congès</th>
+                  <th scope="col">Raison</th>
+  
+                  <th scope="col">Action</th>
+                </tr>
+  
+            <tr ng-repeat="demand in demands " >
+              <th scope="col">{{demand.user.name}}</th>  
+              <th scope="col">{{demand.date_from}}</th>
+              <th scope="col">{{demand.date_to}}</th>
+              <th scope="col">{{demand.reason_request}}</th>
+              <th scope="col">
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Saisissez un commentaire de refus:</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="text" ng-model="reason_refuse">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" ng-click="refus(reason_refuse)">Enregistrer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+                <button type="button"
+                        class="btn btn-danger"
+                        data-toggle="modal" data-target="#exampleModal" >
+                Refuser</button>
+                &nbsp; <button type="button" class="btn btn-success" ng-click="accept(demand.id)">Accepter</button>
+
+    </th>
+
+            </tr>
+          </tbody>
+        </table>
+  
+    </div>
+</div>

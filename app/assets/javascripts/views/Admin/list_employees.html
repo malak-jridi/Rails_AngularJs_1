@@ -1,0 +1,107 @@
+
+
+<div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+  
+      <ul class="nav navbar-nav nav-header navbar-default">
+  
+        <li ng-show="signedIn()"><a ui-sref="employees">Employees</a></li> 
+        <li ng-show="signedIn()"><a ui-sref="Demands">Demandes</a></li> 
+        <li ng-show="signedIn()"><a ui-sref="profil">Profil</a></li> 
+        <li ng-show="signedIn()"><a ng-click="logout()">Logout</a></li> 
+  
+        <!-- SignIn as an employee ??
+       <li
+        ng-show="signedIn()"><a ng-click="">Profile</a></li> 
+  
+        -->
+  
+    </ul>
+  </nav>
+  </div>
+  <div class="col-lg-8 col-lg-offset-2">
+    <div class="col-md-12">
+      <button type="button" class="btn btn-primary btnDemander" data-toggle="modal" data-target="#BtnDemandeCongeModal">
+      <i class="fa fa-plus"></i> Add employee
+      </button>
+  </div>
+  
+    <div class="modal fade" id="BtnDemandeCongeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add employee</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <form name="myForm"  ng-controller="AuthCtrl" ng-submit="addEmployee()">
+            <div class="modal-body">
+                <div class="alert alert-success col-md-5" ng-if="showMsgValid" role="alert">
+                  AddEmployee enregistré :) !
+                </div>
+                <div class="alert alert-danger col-md-5" ng-if="showMsgError" role="alert">
+                  échec d'envoi !
+                </div>
+                <div class="row col-md-12">
+                  <div class="col-md-6">
+                    <label class=" col-form-label">Name</label>
+                    <input required ng-model="name" class="form-control" type="text">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="col-form-label">Username</label>
+                    <input required ng-model="username" class="form-control" type="text">
+                  </div>
+                </div>
+                <p></p>
+                <div class="row ">
+                  <div class="col-md-12">
+                      <div class="col-md-6">
+                    <label class="col-form-label">Email</label>
+                    <input type="email "class="form-control" required ng-model="email" id="exampleFormControlTextarea1" rows="3"></input>
+                      </div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-6">
+                    <label class="col-form-label">Password</label>
+                    <input type="password" class="form-control" required ng-model="password" id="exampleFormControlTextarea1" rows="3"></input>
+                   </div>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Add employee</button>
+            </div>
+        </form>
+        </div>
+      </div>
+    </div>
+  
+      <table class="table" ng-table="listusers" ng-controller="HomeCtrlAdmin">
+          <thead>
+              <tr >
+                  <th scope="col">ID</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Username</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Action</th>
+                </tr>
+  
+            <tr ng-repeat="employee in employees">
+              <th scope="col">{{employee.id}}</th>
+  
+              <th scope="col">{{employee.email}}</th>
+              <th scope="col">{{employee.name}}</th>
+              <th scope="col">{{employee.username}}</th>
+              <th scope="col">{{employee.phone}}</th>
+
+              <th scope="col"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" ng-click="getEmployee(employee.id)">Supprimer</button>
+    </th>
+  
+            </tr>
+          </tbody>
+        </table>
+  
+    </div>

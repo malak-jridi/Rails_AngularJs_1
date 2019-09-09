@@ -1,0 +1,58 @@
+
+
+<div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+  
+  
+   <ul class="nav navbar-nav nav-header navbar-default">
+    <li ng-show="signedIn()"><a ui-sref="DemandeConge">Demande un congès</a></li> 
+
+    <li ng-show="signedIn()"><a ui-sref="Reponse">Reponses</a></li> 
+    <li ng-show="signedIn()"><a ui-sref="profile">Profil</a></li> 
+
+    <li ng-show="signedIn()"><a ng-click="logout()">Logout</a></li> 
+  
+  
+  
+  </ul>
+    </nav>
+  </div>
+
+
+  <div class="container">
+    <div class="main-login main-center col-md-5 offset-md-3">
+      <h3 class="form-signin-heading">Modifier Votre Paramétres</h3>
+      <br/>
+      <form ng-submit="putdata(user.id,user.username,user.email,user.password)" ng-controller="HomeCtrlAdmin">
+        <div class="alert alert-danger" ng-if="showPasswordError" role="alert">
+          Veuillez vérifier votre mot de passe !
+        </div>
+        <div class="alert alert-danger" ng-if="showEmailError" role="alert">
+          Un compte existe déjà pour cette adresse mail !
+        </div>
+        <div class="input-group">
+          <input type="email" class="form-control" placeholder="Email" ng-model="user.email">
+        </div>
+        <br/>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Nom" ng-model="user.username">
+        </div>
+        <br/>
+     
+        <div class="input-group">
+          <input type="password" class="form-control" ng-model="user.password" id="password" placeholder="Entez votre mot de passe" required />
+        </div>
+        <br/>
+        <div class="input-group">
+          <input type="password" class="form-control" ng-model="passwordConfirm" id="confirm" placeholder="Confirmez votre mot de passe" required />
+        </div>
+  
+        <hr>
+        <div class="input-group">
+        <button class="btn btn-lg btn-primary btn-block"  name="Submit" type="submit">Confirmer</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  </div>
+                                                      

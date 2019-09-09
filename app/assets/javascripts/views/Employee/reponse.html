@@ -1,0 +1,45 @@
+
+
+
+<div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+  
+  
+   <ul class="nav navbar-nav nav-header navbar-default">
+    
+    <li ng-show="signedIn()"><a ui-sref="DemandeConge">Demande un congès</a></li> 
+  
+    <li ng-show="signedIn()"><a ui-sref="Reponse">Réponses</a></li> 
+    <li ng-show="signedIn()"><a ui-sref="profile">Profil</a></li> 
+    <li ng-show="signedIn()"><a ng-click="logout()">Logout</a></li> 
+  
+  
+  
+  </ul>
+    </nav>
+  </div>
+  <div class="col-lg-8 col-lg-offset-2">
+
+  
+    <table class="table" ng-table="reponse" ng-controller="HomeCtrlEmployee">
+        <thead>
+            <tr >
+                <th scope="col">Debut congès</th>
+                <th scope="col">Fin Congès</th>
+
+                <th scope="col">Réponse</th>
+              </tr>
+
+          <tr ng-repeat="demand in demands " >
+
+            <th scope="col">{{demand.date_from}}</th>
+            <th scope="col">{{demand.date_to}}</th>
+            <th scope="col">{{demand.reason_refuse}}</th>
+
+
+          </tr>
+        </tbody>
+      </table>
+
+  </div>
+</div>
