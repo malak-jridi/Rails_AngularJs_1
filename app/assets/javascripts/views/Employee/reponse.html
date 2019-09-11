@@ -18,23 +18,24 @@
   </ul>
     </nav>
   </div>
-  <div class="col-lg-8 col-lg-offset-2">
-
-  
-    <table class="table" ng-table="reponse" ng-controller="HomeCtrlEmployee">
+  <div class="col-lg-8 col-lg-offset-2" >
+<button ng-click="takeme(user.id)">Load response</button>
+    <table class="table" ng-table="reponse" >
         <thead>
             <tr >
-                <th scope="col">Debut congès</th>
-                <th scope="col">Fin Congès</th>
-
-                <th scope="col">Réponse</th>
+               <th scope="col">Debut congès</th>
+               <th scope="col">Fin Congès</th>
+               <th scope="col">Réponse</th>
+               <th scope="col">raison</th>
               </tr>
 
-          <tr ng-repeat="demand in demands " >
+              <tr ng-repeat="rep in responses "  >
 
-            <th scope="col">{{demand.date_from}}</th>
-            <th scope="col">{{demand.date_to}}</th>
-            <th scope="col">{{demand.reason_refuse}}</th>
+              <th scope="col">{{rep.date_from}}</th>
+              <th scope="col">{{rep.date_to}}</th>
+              <th scope="col">{{rep.etat}}</th>
+              <th scope="col">{{rep.reason_refuse}}</th>
+
 
 
           </tr>

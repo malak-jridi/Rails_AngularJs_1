@@ -1,0 +1,81 @@
+
+
+
+
+<div class="container">
+        <nav class="navbar navbar-default navbar-static-top">
+      
+          <ul class="nav navbar-nav nav-header navbar-default">
+      
+            <li ng-show="signedIn()"><a ui-sref="employees">Employees</a></li> 
+            <li ng-show="signedIn()"><a ui-sref="Demands">Demandes</a></li> 
+            <li ng-show="signedIn()"><a ui-sref="profil">Profil</a></li> 
+            <li ng-show="signedIn()"><a ui-sref="histo">Historique</a></li> 
+    
+            <li ng-show="signedIn()"><a ng-click="logout()">Logout</a></li> 
+      
+            <!-- SignIn as an employee ??
+           <li
+            ng-show="signedIn()"><a ng-click="">Profile</a></li> 
+      
+            -->
+      
+        </ul>
+      </nav>
+      </div>
+    
+
+<div class="col-lg-8 col-lg-offset-2">
+        <h2 style="color:salmon">Historique </h2>
+    
+       <h4>Demand Accepted</h4>
+      <table class="table" ng-table="listdemandsA" ng-controller="HomeCtrlAdmin">
+          <thead>
+              <tr >
+                  <th scope="col">Employé</th>
+                  <th scope="col">Debut congès</th>
+                  <th scope="col">Fin Congès</th>
+                  <th scope="col">Raison</th>
+    
+                  <th scope="col">Reponse</th>
+                </tr>
+    
+            <tr ng-repeat="demand in demandA " >
+              <th scope="col">{{demand.user.name}}</th>  
+              <th scope="col">{{demand.date_from}}</th>
+              <th scope="col">{{demand.date_to}}</th>
+              <th scope="col">{{demand.reason_request}}</th>
+              <th scope="col" style ="color:green">Accepted</th>
+    
+            </tr>
+          </tbody>
+        </table>
+    
+    </div>
+    </div>
+    <div class="col-lg-8 col-lg-offset-2">
+      <h4>Demand Refused</h4>
+     <table class="table" ng-table="listdemandsR" ng-controller="HomeCtrlAdmin">
+         <thead>
+             <tr >
+                 <th scope="col">Employé</th>
+                 <th scope="col">Debut congès</th>
+                 <th scope="col">Fin Congès</th>
+                 <th scope="col">Raison</th>
+    
+                 <th scope="col">Action</th>
+               </tr>
+    
+           <tr ng-repeat="demand in demandR " >
+             <th scope="col">{{demand.user.name}}</th>  
+             <th scope="col">{{demand.date_from}}</th>
+             <th scope="col">{{demand.date_to}}</th>
+             <th scope="col">{{demand.reason_request}}</th>
+             <th scope="col" style ="color:red">Refused</th>
+    
+           </tr>
+         </tbody>
+       </table>
+    
+    </div>
+    </div>

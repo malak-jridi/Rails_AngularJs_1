@@ -54,6 +54,11 @@ angular
   templateUrl: 'views/Employee/reponse.html',
   controller: 'HomeCtrlEmployee'
 })
+.state('histo',{
+  url: '/histo',
+  templateUrl: 'views/Admin/historique.html',
+  controller: 'HomeCtrlAdmin'
+})
 
     $urlRouterProvider.otherwise('/login')
 

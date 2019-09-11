@@ -7,9 +7,6 @@ class UserController < ApplicationController
     byebug
   end
 
-
-
-
   def index
     users = User.all
     render json: users

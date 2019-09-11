@@ -5,14 +5,22 @@ angular
    //Welcome Message 
     $scope.hello="Hello Admin";
 
+   $http.get('http://localhost:3000/demandaccept').success(function(res){
+       $scope.demandA=res.data;
+   });
+
+   $http.get('http://localhost:3000/demandrefuse').success(function(res){
+    $scope.demandR=res.data;
+   });
+
+
     $scope.accept=function(id){
-      var data = {'etat': 'treated'};
+      var data = {'etat': 'treated-accepted'};
       $http.put('http://localhost:3000/addMotifR/' + id, data).then(function (response) {
-      
+         $scope.dem=response.data;
       if (response.data)
             console.log("etat treated");
-                  
-      
+
       }, function (response) {
       
       $scope.msg = "Service not Exists";
@@ -29,17 +37,18 @@ angular
     }
     $scope.refus=function(id,reason_refuse){
       debugger
-      $http.get('http://localhost:3000/getCongeById/'+id).success(function(res){
+      $http.get('http://localhost:3000/getCongeById/' +id ).success(function(res){
         $scope.conge=res;
+        
         console.log(res);
       debugger
-           var data= {'reason_refuse': reason_refuse,'etat': 'treated'};
-           $http.put('http://localhost:3000/addMotifR/' + res.data.id, data).then(function (response) {
-         debugger
+           var data= {'reason_refuse': reason_refuse,'etat': 'treated-refused'};
+           $http.put('http://localhost:3000/addMotifR/'+res.id, data).then(function (response) {
+      debugger
       if (response.data)
+
             console.log("Comment added");
             
-      
       }, function (response) {
       
       $scope.msg = "Service not Exists";
@@ -51,6 +60,8 @@ angular
       $scope.headers = response.headers();
       
       });
+      angular.element('#exampleModal').modal('hide');
+
       
     })
     }

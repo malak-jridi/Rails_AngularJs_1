@@ -7,10 +7,13 @@ angular
     $scope.showMsgValid = false
     $scope.showMsgError = false
 
-
-   $scope.getReponse= function(){
-       
-   }
+$scope.takeme= function(id){
+       $http.get("http://localhost:3000/GetUserConges/"+id).success(function(res){
+           $scope.responses=res.data;
+           console.log(res);
+       });
+    }  
+   
 
 
 
@@ -54,6 +57,8 @@ angular
             console.log(response, 'Post !');
             $scope.dateF='';$scope.dateD='';$scope.motifAb='';
             $scope.showMsg=true;
+            angular.element('#BtnDemandeCongeModal').modal('hide');
+
         },function (error){
             console.log(error, 'can not save demand !.');
         });

@@ -26,8 +26,11 @@ Rails.application.routes.draw do
   post '/saveDemand', to: 'demand#create'
   get '/GetUserConges/(/:id)', to: 'demand#getUserConges'
   get 'getCongeById/(/:id)', to: 'demand#getCongeById'
-  get '/getUserCongeModel/(/:id)', to: 'demand#getUserCongeModel'
   delete '/deleteDemande/(/:id)', to: 'demand#deleteDemande'
   put 'addMotifR/(/:id)', to: 'demand#postMotifR' 
   get 'demands', to:'demand#index'
+
+  get 'demandaccept', to: 'demand#getDemandA'
+  get 'demandrefuse', to: 'demand#getDemandR'
+
 end

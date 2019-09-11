@@ -23,6 +23,7 @@
     <div class="main-login main-center col-md-5 offset-md-3">
       <h3 class="form-signin-heading">Modifier Votre Paramétres</h3>
       <br/>
+
       <form ng-submit="putdata(user.id,user.username,user.email,user.password)" ng-controller="HomeCtrlAdmin">
         <div class="alert alert-danger" ng-if="showPasswordError" role="alert">
           Veuillez vérifier votre mot de passe !
